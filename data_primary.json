@@ -1,10 +1,21 @@
 {
-    "firstName": "John",
-    "lastName": "Doe",
-    "isActive" : "false",
-    "idNumber" : "0000",
-    "comments" : "Record is in unfortunate shape",
-    "affiliates" : [],
-    "officeBuilding" : "Unknown",
-    "officeNumber" : "000"
+    "firstName": "Sam",
+    "lastName": "Smith",
+    "isActive" : "true",
+    "idNumber" : "778645",
+    "comments" : "New hire in the engineering department",
+    "affiliates" : [
+        {
+            "firstName" : "Jane",
+            "lastName" : "Doe",
+            "relationship" : "Friend"
+        },
+        {
+            "firstName" : "John",
+            "lastName" : "Doe",
+            "relationship" : "Neighbor"
+        }
+    ],
+    "officeBuilding" : "Duthie Center For Engineering",
+    "officeNumber" : "216"
 }
