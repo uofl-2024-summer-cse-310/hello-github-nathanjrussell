@@ -34,11 +34,11 @@ jobs:
         comparison-method: contains
         timeout: 10
         max-score: 30
-    - name: QA Validation Test Suite
+    - name: 'QA Validation Test Suite'
       id: qa-validation-test-suite
       uses: education/autograding-command-grader@v1
       with:
-        test-name: QA Validation Test Suite
+        test-name: 'QA Validation Test Suite'
         setup-command: ''
         command: make test
         timeout: 10
@@ -49,4 +49,4 @@ jobs:
         VERIFY-A-JSON-FILE-EXISTS-RESULTS: "${{steps.verify-a-json-file-exists.outputs.result}}"
         VERIFY-QA-VALIDATION-TEST-SUITE-RESULTS: "${{steps.qa-validation-test-suite.result}}"
       with:
-        runners: "verify-a-json-file-exists,qa-validation-test-suite"
+        runners: verify-a-json-file-exists, qa-validation-test-suite
