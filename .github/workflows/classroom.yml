@@ -49,4 +49,4 @@ jobs:
         VERIFY-A-JSON-FILE-EXISTS-RESULTS: "${{steps.verify-a-json-file-exists.outputs.result}}"
         VERIFY-QA-VALIDATION-TEST-SUITE-RESULTS: "${{steps.qa-validation-test-suite.result}}"
       with:
-        runners: verify-a-json-file-exists,qa-validation-test-suite
+        runners: "verify-a-json-file-exists,qa-validation-test-suite"
