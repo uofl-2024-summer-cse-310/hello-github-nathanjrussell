@@ -20,8 +20,8 @@ The text file `data_primary.json` contains errors that need to be corrected.  Al
 ## Acceptance 
 The following conditions must be met to earn full credit for this assignment.
 
-* The file `data_primary.json` needs to be renamed to simply `data.json`.
-* The JSON object in the file needs to be updated to look like the following:
+* The file `data_primary.json` needs to be renamed to `data.json`.
+* The file `data.json` needs to be updated to look like the following JSON object:
 ```
 {
     "firstName": "Sam",
