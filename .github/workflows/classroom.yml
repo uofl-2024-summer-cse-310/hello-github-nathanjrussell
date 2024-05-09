@@ -36,6 +36,6 @@ jobs:
         uses: education/autograding-grading-reporter@v1
         env:
           A-COMMAND-TEST_RESULTS: "${{steps.a-command-test.outputs.result}}"
-          B-COMMAND-TEST_RESULTS: "${{steps.a-command-test.outputs.result}}"          
+          B-COMMAND-TEST_RESULTS: "${{steps.b-command-test.outputs.result}}"          
         with:
           runners: a-command-test,b-command-test
