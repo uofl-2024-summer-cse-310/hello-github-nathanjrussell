@@ -32,9 +32,10 @@ jobs:
           command: make test
           timeout: 10
           max-score: 70          
-      # - name: Autograding Reporter
-      #   env:
-      #     A-COMMAND-TEST_RESULTS: "${{steps.a-command-test.outputs.result}}"
-      #     B-COMMAND-TEST_RESULTS: "${{steps.b-command-test.outputs.result}}"
-      #   with:
-      #     runners: a-command-test,b-command-test
+      - name: Autograding Reporter
+        uses: ./
+        env:
+          A-COMMAND-TEST_RESULTS: "${{steps.a-command-test.outputs.result}}"
+          B-COMMAND-TEST_RESULTS: "${{steps.a-command-test.outputs.result}}"          
+        with:
+          runners: a-command-test,b-command-test
