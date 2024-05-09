@@ -1,8 +1,8 @@
 name: Autograding Tests
 'on':
-- push
-- workflow_dispatch
-- repository_dispatch
+  - push
+  - workflow_dispatch
+  - repository_dispatch
 permissions:
   checks: write
   actions: read
@@ -10,7 +10,6 @@ permissions:
 jobs:
   run-autograding-tests:
     runs-on: ubuntu-latest
-    if: github.actor != 'github-classroom[bot]'
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -22,11 +21,11 @@ jobs:
       run: make clean
     - name: Download Test File
       run: make download-test
-    - name: 'Verify A JSON Exists'
+    - name: Verify A JSON Exists
       id: verify-a-json-file-exists
       uses: education/autograding-io-grader@v1
       with:
-        test-name: 'Commit Points (Verify A JSON file exists)'
+        test-name: Commit Points (Verify A JSON file exists)
         setup-command: ''
         command: ls *.json
         input: ''
@@ -34,11 +33,11 @@ jobs:
         comparison-method: contains
         timeout: 10
         max-score: 30
-    - name: 'QA Validation Test Suite'
+    - name: QA Validation Test Suite
       id: qa-validation-test-suite
       uses: education/autograding-command-grader@v1
       with:
-        test-name: 'QA Validation Test Suite'
+        test-name: QA Validation Test Suite
         setup-command: ''
         command: make test
         timeout: 10
