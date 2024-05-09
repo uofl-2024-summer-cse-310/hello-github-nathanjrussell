@@ -1,49 +1,43 @@
 name: Autograding Tests
-'on':
+on:
   - push
   - workflow_dispatch
-  - repository_dispatch
 permissions:
   checks: write
   actions: read
   contents: read
 jobs:
-  run-autograding-tests:
+  autograding:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-    - name: Delete Makefile
-      run: rm -f Makefile
-    - name: Download Makefile
-      run: curl -o Makefile https://raw.githubusercontent.com/uofl-russell/auto_grader_test_files/main/hello_github/makefile
-    # - name: Delete Tests
-    #   run: make clean
-    # - name: Download Test File
-    #   run: make download-test
-    - name: Verify A JSON Exists
-      id: verify-a-json-file-exists
-      uses: education/autograding-io-grader@v1
-      with:
-        test-name: Commit Points (Verify A JSON file exists)
-        setup-command: ''
-        command: ls *.json
-        input: ''
-        expected-output: 'json'
-        comparison-method: contains
-        timeout: 10
-        max-score: 30
-    - name: QA Validation Test Suite
-      id: qa-validation-test-suite
-      uses: education/autograding-command-grader@v1
-      with:
-        test-name: QA Validation Test Suite
-        command: make test
-        timeout: 10
-        max-score: 70
-    - name: Autograding Reporter
-      uses: education/autograding-grading-reporter@v1
-      env:
-        VERIFY-A-JSON-FILE-EXISTS-RESULTS: "${{steps.verify-a-json-file-exists.outputs.result}}"
-      with:
-        runners: verify-a-json-file-exists
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Delete Makefile
+        run: rm -f Makefile
+      - name: Download Makefile
+        run: curl -o Makefile https://raw.githubusercontent.com/uofl-russell/auto_grader_test_files/main/hello_github/makefile
+      - name: A command test
+        id: a-command-test
+        uses: education/autograding-command-grader@v1
+        with:
+          test-name: A command test
+          setup-command: bundle install
+          command: make clean
+          timeout: 10
+          max-score: 30
+      - name: A command test
+        id: b-command-test
+        uses: education/autograding-command-grader@v1
+        with:
+          test-name: A command test
+          setup-command: bundle install
+          command: make clean
+          timeout: 10
+          max-score: 70          
+      - name: Autograding Reporter
+        uses: ./
+        env:
+          A-COMMAND-TEST_RESULTS: "${{steps.a-command-test.outputs.result}}"
+          B-COMMAND-TEST_RESULTS: "${{steps.b-command-test.outputs.result}}"
+        with:
+          runners: a-command-test,b-command-test
