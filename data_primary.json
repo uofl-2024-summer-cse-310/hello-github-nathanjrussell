@@ -1,0 +1,10 @@
+{
+    "firstName": "John",
+    "lastName": "Doe",
+    "isActive" : "false",
+    "idNumber" : "0000",
+    "comments" : "Record is in unfortunate shape",
+    "affiliates" : [],
+    "officeBuilding" : "Unknown",
+    "officeNumber" : "000"
+}

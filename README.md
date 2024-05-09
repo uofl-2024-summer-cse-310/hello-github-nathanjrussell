@@ -24,18 +24,28 @@ The following conditions must be met to earn full credit for this assignment.
 * The JSON object in the file needs to be updated to look like the following:
 ```
 {
-    "firstName": "Nathan",
-    "lastName": "Russell",
+    "firstName": "Sam",
+    "lastName": "Smith",
     "isActive" : "true",
-    "idNumber" : "123456",
-    "comments" : "Absolutely loves mathematics and computer science",
-    "affiliates" : ["Sam", "Juan", "Emily", "Lelui", "Landon", "Andrew"],
+    "idNumber" : "778645",
+    "comments" : "New hire in the engineering department",
+    "affiliates" : [
+        {
+            "firstName" : "Jane",
+            "lastName" : "Doe",
+            "relationship" : "Friend"
+        },
+        {
+            "firstName" : "John",
+            "lastName" : "Doe",
+            "relationship" : "Neighbor"
+        }
+    ],
     "officeBuilding" : "Duthie Center For Engineering",
     "officeNumber" : "216"
 }
+
 ```
 
 ## Grading
-This assignment is worth 100 points.
-* 30 Points - Initial commit
-* 70 Points - All GitHub workflow tests passed (no partial credit) 
+This assignment is worth 100 points.  No partial credit will be awarded.  All GitHub workflow tests must pass to earn credit. 
