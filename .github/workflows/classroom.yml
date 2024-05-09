@@ -33,7 +33,7 @@ jobs:
           timeout: 10
           max-score: 70          
       - name: Autograding Reporter
-        uses: ./
+        uses: education/autograding-grading-reporter@v1
         env:
           A-COMMAND-TEST_RESULTS: "${{steps.a-command-test.outputs.result}}"
           B-COMMAND-TEST_RESULTS: "${{steps.a-command-test.outputs.result}}"          
