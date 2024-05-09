@@ -21,7 +21,6 @@ jobs:
         uses: education/autograding-command-grader@v1
         with:
           test-name: A command test
-          setup-command: bundle install
           command: make clean
           timeout: 10
           max-score: 30
@@ -30,8 +29,7 @@ jobs:
         uses: education/autograding-command-grader@v1
         with:
           test-name: A command test
-          setup-command: bundle install
-          command: make clean
+          command: make test
           timeout: 10
           max-score: 70          
       # - name: Autograding Reporter
